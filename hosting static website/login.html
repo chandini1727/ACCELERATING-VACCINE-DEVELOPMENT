@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Center Login</title>
+    <style>
+        body {
+            background-image: url('image2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        input, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+    <script>
+        function checkLogin(event) {
+            event.preventDefault(); // Prevent the default form submission
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check if the username and password are correct
+            if (username === "admin" && password === "1234") {
+                window.location.href = "upload.html"; // Navigate to upload page
+            } else {
+                alert("Invalid credentials! Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Login as Vaccine Center</h2>
+    <form onsubmit="checkLogin(event)"> <!-- Trigger JS function -->
+        <label>Username:</label>
+        <input type="text" id="username"><br>
+        <label>Password:</label>
+        <input type="password" id="password"><br>
+        <button type="submit">Login</button> <!-- Trigger login function -->
+    </form>
+</body>
+</html>
