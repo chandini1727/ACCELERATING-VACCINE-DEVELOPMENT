@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View More Details</title>
+    <style>
+        body {
+            background-image: url('image2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .meeting-section {
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2>More Details about Uploaded Data</h2>
+
+    <div id="moreDetails">
+        <p>Here you can find additional details about the uploaded vaccine data.</p>
+    </div>
+
+    <!-- Meeting Section -->
+    <div class="meeting-section">
+        <h3>Upcoming Scientist Meetings</h3>
+        <ul id="meetingList">
+            <li>Meeting on COVID-19 Research - <strong>Feb 10, 2025</strong> at 3:00 PM</li>
+            <li>New Vaccine Approvals - <strong>Feb 15, 2025</strong> at 1:00 PM</li>
+            <li>Research on AI in Medicine - <strong>Feb 20, 2025</strong> at 5:00 PM</li>
+        </ul>
+        <button onclick="joinMeeting()">Join Meeting</button>
+    </div>
+
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "scientist_profile.html";  // Go back to the scientist profile
+        }
+
+        function joinMeeting() {
+            // Replace with the actual meeting link or logic to fetch the meeting URL
+            window.location.href = "https://zoom.us/j/123456789"; // Example Zoom link
+        }
+    </script>
+</body>
+</html>
