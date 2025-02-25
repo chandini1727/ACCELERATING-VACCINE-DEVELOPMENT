@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientist Profile</title>
+    <style>
+        body {
+            background-image: url('image2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #uploadedData {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scientist Profile</h2>
+
+    <div id="uploadedData">
+        <h3>Uploaded Vaccine Data:</h3>
+        <ul id="fileList">
+            <!-- Uploaded files will appear here -->
+        </ul>
+    </div>
+
+    <!-- Replaced the Upload More Data button with View More Details button -->
+    <button onclick="viewMoreDetails()">View More Details</button>
+
+    <script>
+        // Check if the user is logged in (using localStorage)
+        var loggedInUser = localStorage.getItem("loggedInUser");
+
+        // If no user is logged in, redirect to the login page
+        if (!loggedInUser) {
+            alert("You must be logged in to view this page.");
+            window.location.href = "login.html";  // Redirect to login page
+        }
+
+        // Retrieve uploaded files from localStorage
+        var uploadedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
+
+        // Display the uploaded files on the profile page
+        var fileListContainer = document.getElementById("fileList");
+        if (uploadedFiles.length > 0) {
+            uploadedFiles.forEach(function(file) {
+                var listItem = document.createElement("li");
+                listItem.textContent = file;
+                fileListContainer.appendChild(listItem);
+            });
+        } else {
+            fileListContainer.innerHTML = "<li>No vaccine data uploaded yet.</li>";
+        }
+
+        // Function to navigate to the View More Details page (or any other action you want)
+        function viewMoreDetails() {
+            // This could lead to a new page with more information about the uploaded data
+            window.location.href = "view_more_details.html";  // Redirect to a page with more details about the vaccine data
+        }
+    </script>
+</body>
+</html>
