@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientist Profile</title>
+    <style>
+        body {
+            background-image: url('image2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #uploadedData {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scientist Profile</h2>
+
+    <div id="uploadedData">
+        <h3>Uploaded Vaccine Data:</h3>
+        <ul id="fileList">
+            <!-- Uploaded files will appear here -->
+        </ul>
+    </div>
+
+    <button id="viewDetailsBtn">View More Details</button>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        // Check if the user is logged in
+        var loggedInUser = localStorage.getItem("loggedInUser");
+
+        if (!loggedInUser) {
+            alert("Access denied! Please log in.");
+            window.location.href = "scientist_login.html";  // Redirect to login page
+        }
+
+        // Load uploaded files
+        var uploadedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
+
+        var fileListContainer = document.getElementById("fileList");
+        if (uploadedFiles.length > 0) {
+            uploadedFiles.forEach(function(file) {
+                var listItem = document.createElement("li");
+                listItem.textContent = file;
+                fileListContainer.appendChild(listItem);
+            });
+        } else {
+            fileListContainer.innerHTML = "<li>No vaccine data uploaded yet.</li>";
+        }
+
+        // Redirect to view more details page
+        document.getElementById("viewDetailsBtn").addEventListener("click", function() {
+            window.location.href = "view_more_details.html";
+        });
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            alert("You have been logged out.");
+            window.location.href = "scientist_login.html";
+        }
+    </script>
+</body>
+</html>

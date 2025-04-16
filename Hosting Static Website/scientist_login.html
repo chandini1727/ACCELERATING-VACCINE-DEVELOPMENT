@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientist Login</title>
+    <style>
+        body {
+            background-image: url('image2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            display: block;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scientist Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Enter Username" required>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Example: Hardcoded scientist credentials (replace with database validation)
+            var correctUsername = "scientist123";
+            var correctPassword = "securepass";
+
+            if (username === correctUsername && password === correctPassword) {
+                localStorage.setItem("loggedInUser", username);  // Store login session
+                alert("Login successful! Redirecting to profile...");
+                window.location.href = "scientist_profile.html";  // Redirect to profile page
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

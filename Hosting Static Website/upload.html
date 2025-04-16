@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Vaccine Data</title>
+    <style>
+        body {
+            background-image: url('image2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        input, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #successMessage {
+            display: none;
+        }
+    </style>
+    <script>
+        function uploadData() {
+            var fileInput = document.getElementById("fileUpload");
+            var successMessage = document.getElementById("successMessage");
+
+            if (fileInput.files.length > 0) {
+                // Show success message
+                successMessage.style.display = "block";
+
+                // Save the uploaded file name to localStorage
+                var fileName = fileInput.files[0].name;
+                var uploadedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
+                uploadedFiles.push(fileName);
+                localStorage.setItem("uploadedFiles", JSON.stringify(uploadedFiles));
+
+                // Navigate to the next page after 2 seconds
+                setTimeout(function() {
+                    window.location.href = "show_data_and_upload.html";  // Redirect to the next upload page
+                }, 2000);
+            } else {
+                alert("Please select a file to upload.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Upload Vaccine Data</h2>
+    <input type="file" id="fileUpload"><br>
+    <button onclick="uploadData()">Upload</button>
+
+    <div id="successMessage">
+        <h3>File Upload Successful!</h3>
+    </div>
+</body>
+</html>
