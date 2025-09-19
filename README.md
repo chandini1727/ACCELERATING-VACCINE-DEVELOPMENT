@@ -7,7 +7,6 @@ The pipeline leverages AWS services to process large volumes of vaccine-related 
 🙎‍♀️https://drive.google.com/file/d/1iYHnBt3Z46atf1bDoUhp-VRvJV1U00pH/view?usp=drive_link
 # Working Process
 The project was executed through the following steps:
-
 - **Collaboration with Vaccine Teams:**
 Identified critical data types, volumes, and sources through workshops with scientists.
 Defined key use cases: efficacy analysis, adverse event monitoring, and batch quality control.
