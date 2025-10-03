@@ -22,7 +22,6 @@ Built a static website for scientific collaboration, enabling data visualization
 
 ## Implementation
 The data pipeline was implemented using AWS services with the following steps:
-
 - **1. Creating S3 Bucket**
 Navigated to the S3 console, created a bucket with a suitable name, and configured it for data storage.
 - **2. Creating EC2 Instances**
